@@ -4,12 +4,13 @@ import { Tabs } from 'expo-router';
 export default function TabLayout() {
   return (
     <Tabs
+      initialRouteName="profil"  // <-- ici, on démarre sur Profil
       screenOptions={{
-        tabBarActiveTintColor: '#ffd33d',
+        tabBarActiveTintColor: '#cbae4cff',
       }}
     >
       <Tabs.Screen
-        name="index" // Correspond à / (accueil)
+        name="index"  // Correspond à / (accueil)
         options={{
           title: 'Accueil',
           tabBarIcon: ({ color, focused }) => (
@@ -18,7 +19,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="profil" // Correspond à /profil
+        name="profil"  // Correspond à /profil
         options={{
           title: 'Profil',
           tabBarIcon: ({ color, focused }) => (

@@ -1,5 +1,6 @@
+import { Link } from 'expo-router';
 import React from 'react';
-import { View, Text, FlatList, StyleSheet, Image } from 'react-native';
+import { FlatList, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
 const appartements = [
   { id: '1', nom: 'Appartement cosy', prix: 75 },
@@ -14,17 +15,19 @@ type Appartement = {
   prix: number;
 };
 
-export default function IndexScreen() {
-  const renderItem = ({ item }: { item: Appartement }) => (
-    <View style={styles.item}>
-      <Image source={{ uri: 'https://picsum.photos/400/200' }} style={styles.image} />
+const renderItem = ({ item }: { item: Appartement }) => (
+  <Link href={`./logement/${item.id}`} asChild>
+    <Pressable style={styles.item}>
+      <Image source={{ uri: 'https://static.vecteezy.com/system/resources/previews/000/567/738/original/vector-real-estate-house-icon.jpg' }} style={styles.image} />
       <View style={styles.textContainer}>
         <Text style={styles.nom}>{item.nom}</Text>
         <Text style={styles.prix}>{item.prix} €/nuit</Text>
       </View>
-    </View>
-  );
+    </Pressable>
+  </Link>
+);
 
+export default function IndexScreen() {
   return (
     <View style={styles.container}>
       <FlatList
@@ -38,16 +41,10 @@ export default function IndexScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 50,
-    backgroundColor: '#fff',
-  },
-  list: {
-    paddingHorizontal: 16,
-  },
+  container: { flex: 1, paddingTop: 50, backgroundColor: '#fff' },
+  list: { paddingHorizontal: 16 },
   item: {
-    flexDirection: 'row', // image à gauche, texte à droite
+    flexDirection: 'row',
     backgroundColor: '#f5f5f5',
     borderRadius: 8,
     padding: 12,
