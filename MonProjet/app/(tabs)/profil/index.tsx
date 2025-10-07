@@ -1,5 +1,6 @@
+import { router } from 'expo-router';
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Button, Image, StyleSheet, Text, View } from 'react-native';
 import { useReservation } from '../../contexts/ReservationContext';
 
 export default function Profil() {
@@ -16,6 +17,14 @@ export default function Profil() {
       {reservations.map((resa, i) => (
         <Text key={i} style={styles.resa}>{resa.nom} le {resa.date}</Text>
       ))}
+      
+      <View style={styles.playgroundSection}>
+        <Button
+          title="Accéder aux exercices"
+          onPress={() => router.push("../(sandbox)/playground")}
+          color="#ffd33d"
+        />
+      </View>
     </View>
   );
 }
@@ -27,4 +36,8 @@ const styles = StyleSheet.create({
   info: { fontSize: 16, color: 'gray', marginBottom: 2 },
   subtitle: { marginTop: 20, fontWeight: 'bold', fontSize: 18, marginBottom: 6 },
   resa: { fontSize: 16, color: '#333' },
+  playgroundSection: { 
+    marginTop: 30, 
+    width: '80%',
+  },
 });
