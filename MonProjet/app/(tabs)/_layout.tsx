@@ -19,11 +19,20 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="(explorer)"
+        name="(explorer)" //explorer
         options={{
           title: 'Explorer',
           tabBarIcon: ({ color, focused }) => (
             <Ionicons name={focused ? 'search' : 'search-outline'} size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="(messages)" // messages
+        options={{
+          title: 'Messages',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name={focused ? 'chatbubbles' : 'chatbubbles-outline'} size={24} color={color} />
           ),
         }}
       />
