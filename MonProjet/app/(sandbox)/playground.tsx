@@ -30,6 +30,16 @@ const Playground: React.FC = () => {
                 title="Exo 5 — Formulaire"
                 onPress={() => router.push("../(sandbox)/exo-formulaire")}
             />
+
+            <Button
+                title="Exo 6 — Caméra"
+                onPress={() => router.push("../(sandbox)/exo-camera")}
+            />
+
+            <Button
+                title="Exo 7 — Géolocalisation"
+                onPress={() => router.push("../(sandbox)/exo-geolocalisation")}
+            />
         </View>
     );
 };
